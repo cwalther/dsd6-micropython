@@ -24,3 +24,20 @@ To flash the zip file over serial using adafruit-nrfutil:
 ```
 make NRFUTIL_PORT=/dev/... deploy
 ```
+
+## How to use
+
+### Display
+
+To use the display in landscape orientation:
+
+```python
+import machine, ssd1306
+display = ssd1306.SSD1306_SPI(128, 32, machine.SPI(0), machine.Pin(28), machine.Pin(4), machine.Pin(29))
+display.write_cmd(0xDA); display.write_cmd(0x12)
+display.write_cmd(0xC0)
+
+display.rect(0, 0, display.width, display.height, 1)
+display.text('Hello World!', 16, 12, 1)
+display.show()
+```
