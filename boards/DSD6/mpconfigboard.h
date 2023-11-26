@@ -61,3 +61,7 @@
 #define HELP_TEXT_BOARD_LED         ""
 
 #define BLUETOOTH_LFCLK_RC          1
+
+#define MICROPY_BOARD_ENTER_BOOTLOADER(nargs, args)     DSD6_enter_bootloader(nargs, args)
+// arguments are `size_t n_args, const mp_obj_t *args` but these types aren't known yet at the time this is included
+void DSD6_enter_bootloader();

@@ -27,6 +27,22 @@ make NRFUTIL_PORT=/dev/... deploy
 
 ## How to use
 
+### Bootloader
+
+To enter the bootloader for serial DFU:
+```python
+import machine
+machine.bootloader()
+# or
+machine.bootloader(False)
+```
+
+To enter the bootloader for Bluetooth OTA DFU (look for device “AdaDFU”):
+```python
+import machine
+machine.bootloader(True)
+```
+
 ### Display
 
 To use the display in landscape orientation:
